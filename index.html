@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Página de ejemplo - plantilla básica HTML" />
+    <title>Título de la página</title>
+
+    <!-- Hoja de estilos opcional -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Encabezado principal</h1>
+      <nav>
+        <!-- Navegación principal -->
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Sección</h2>
+        <p>Contenido de ejemplo.</p>
+      </section>
+
+      <section id="camera-section">
+        <h2>Reconocimiento en vídeo</h2>
+        <div class="controls">
+          <button id="start-btn">Iniciar cámara</button>
+          <button id="stop-btn" disabled>Detener cámara</button>
+        </div>
+
+        <!-- Elemento de vídeo donde veremos la cámara -->
+        <!--
+          Atributos importantes:
+          - muted: permite autoplay en muchos navegadores móviles sin interacción del usuario
+          - playsinline: evita que Safari/iOS abra el vídeo en pantalla completa
+          - disablePictureInPicture: desactiva Picture-in-Picture en navegadores que lo soportan
+          - aria-label: accesibilidad para lectores de pantalla
+        -->
+        <video
+          id="webcam"
+          autoplay
+          muted
+          playsinline
+          disablePictureInPicture
+          width="640"
+          height="480"
+          aria-label="Vista previa de la cámara"
+          style="max-width:100%;height:auto;"
+        ></video>
+
+        <!-- Contenedor para imprimir los resultados del modelo -->
+        <div id="results" aria-live="polite">
+          <h3>Resultados</h3>
+          <ul id="predictions"></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Tu nombre o empresa</p>
+    </footer>
+
+    <!-- Scripts de TensorFlow.js y modelo MobileNet (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+
+    <!-- Script opcional de la aplicación -->
+    <script src="app.js" defer></script>
+  </body>
+</html>
